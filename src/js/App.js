@@ -49,8 +49,9 @@ class App extends React.Component {
                     <div className="panel-group">
                         {
                             !isLoading && contacts.length > 0 ? contacts.map(contact => {
-                                return <Collapsible title="Tracy Palmer">
-                                    <p>tracey.palmer@example.com<br />3280 manchester road, ely</p>
+                                const {name, email, username, location} = contact;
+                                return <Collapsible key={username} title={name}>
+                                    <p>{email}<br />{location}</p>
                                 </Collapsible>
                             }) : null
                         }
