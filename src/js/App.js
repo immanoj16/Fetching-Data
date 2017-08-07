@@ -3,6 +3,16 @@ import image from '../images/cloud-upload-download-data-transfer.svg';
 import Collapsible from './Collapsible';
 
 class App extends React.Component {
+
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        isLoading: true,
+        contacts: []
+      }
+    }
+
     render() {
         return (
             <div>
