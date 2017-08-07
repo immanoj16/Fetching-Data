@@ -5,22 +5,33 @@ import Collapsible from './Collapsible';
 class App extends React.Component {
 
     constructor(props) {
-      super(props);
+        super(props);
 
-      this.state = {
-        isLoading: true,
-        contacts: []
-      }
+        this.state = {
+            isLoading: true,
+            contacts: []
+        }
+    }
+
+    componentDidMount () {
+        this.fetchData();
+    }
+
+    fetchData () {
+
     }
 
     render() {
+
+        const {isLoading} = this.state;
+
         return (
             <div>
                 <header>
                     <img src={image} />
                     <h1>Fetching Data <button className="btn btn-sm btn-danger">Fetch now</button></h1>
                 </header>
-                <div className="content">
+                <div className={`content ${isLoading ? 'is-loading' : ''}`}>
                     <div className="panel-group">
                         <Collapsible title="Tracy Palmer">
                             <p>tracey.palmer@example.com<br />3280 manchester road, ely</p>
@@ -31,6 +42,9 @@ class App extends React.Component {
                         <Collapsible title="Alfred Olsen">
                             <p>alfred.olsen@example.com<br />6598 fjordparken, hirtsals</p>
                         </Collapsible>
+                    </div>
+                    <div className="loader">
+                        <div className="icon"></div>
                     </div>
                 </div>
             </div>
